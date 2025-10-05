@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Earth</title>
+  <!-- keep your main styles -->
+  <link rel="shortcut icon" href="./download.png" type="image/x-icon">
+  <style>
+    /* ---------- Mobile blocker (inline so copy/paste works) ---------- */
+    #mobile-blocker {
+      position: fixed;
+      inset: 0;
+      z-index: 999999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(4,6,10,0.97);
+      color: #f7fbff;
+      text-align: center;
+      padding: 3rem;
+      -webkit-backdrop-filter: blur(6px);
+      backdrop-filter: blur(6px);
+      transition: opacity 240ms ease;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    #mobile-blocker[hidden] { display: none; }
+    #mobile-blocker .inner {
+      max-width: 680px;
+      padding: 2rem;
+      border-radius: 14px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+      border: 1px solid rgba(255,255,255,0.04);
+    }
+    #mobile-blocker h1 {
+      margin: 0 0 0.6rem 0;
+      font-size: 1.9rem;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+    }
+    #mobile-blocker p { margin: 0.4rem 0; color: rgba(255,255,255,0.92); }
+    #mobile-blocker .small { color: rgba(255,255,255,0.66); font-size: .92rem; margin-top: .8rem; }
+
+    /* Slight visual cue for disabled Enter button (optional) */
+    .enter-btn.disabled { opacity: 0.45; cursor: not-allowed; pointer-events: none; transform: none; }
+
+    /* Keep loader-screen visible rules preserved if you already have them in style.css,
+       but ensure our loader overlay sits above everything when active */
+    .loader-screen { z-index: 200000; }
+    canvas.webgl { display: block; } /* ensure canvas shows when active */
+  </style>
+  <script type="module" crossorigin src="./assets/index-D3ArYNeZ.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-C3QzU_HR.css">
+</head>
+<body>
+  <nav>
+    <h2 style="cursor: default;" class="logo">ACTIVE THEORY</h2>
+    <h2 style="cursor: default;" class="logo">TERRA'S POV</h2>
+  </nav>
+
+  <!-- Desktop-only blocker (shown when width < 1000px) -->
+  <div id="mobile-blocker" role="dialog" aria-modal="true" aria-labelledby="blocker-title" hidden>
+    <div class="inner">
+      <h1 id="blocker-title">Best viewed on desktop</h1>
+      <p>This experience is built and optimized for larger screens. For the best visual result, please open this page on a desktop or laptop.</p>
+      <p class="small">Tip: Resize your window to at least 1000px to bypass this screen.</p>
+    </div>
+  </div>
+
+  <div class="body-wrapper">
+    <img src="./aba.png" class="bg-hero" alt="bg">
+
+    <main>
+      <div class="subtitle-parent">
+        <div class="line"></div>
+        <h3 class="subtitle-heading">EOS AM-1</h3>
+      </div>
+
+      <h1>Watching <br> Our <br> World</h1>
+
+      <p class="subtitle">High above the clouds, Terra witnesses the unfolding story of a planet in constant motion.</p>
+
+      <div class="div-25">25</div>
+    </main>
+
+    <div class="enter-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Enter experience">
+      <div class="round-enter-btn">
+        <div>
+          <p>Enter</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Loading Screen -->
+  <div class="loader-screen">
+    <div class="loader-content">
+        <h3 class="loader-title-small">Headphones recommanded</h3>
+      <h2 class="loader-title">LOADING EXPERIENCE</h2>
+      <div class="progress-bar">
+        <div class="progress-fill"></div>
+      </div>
+      <p class="progress-text">0%</p>
+      <p class="loader-subtitle">Preparing your view...</p>
+    </div>
+  </div>
+
+  <canvas class="webgl"></canvas>
+
+  <!-- Core behavior: dynamic load + desktop blocker logic -->
+</body>
+</html>
